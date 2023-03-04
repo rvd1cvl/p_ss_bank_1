@@ -24,7 +24,7 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
 
     @Override
     public SuspiciousAccountTransfer getById(BigInteger id) {
-        return suspiciousAccountTransferRepository.getById(id.intValue());
+        return suspiciousAccountTransferRepository.getById(id);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
 
     @Override
     public void update(SuspiciousAccountTransfer transferServiceToUpdate, BigInteger oldTransferId) {
-        SuspiciousAccountTransfer oldTransfer = suspiciousAccountTransferRepository.getById(oldTransferId.intValue());
+        SuspiciousAccountTransfer oldTransfer = suspiciousAccountTransferRepository.getById(oldTransferId);
         oldTransfer.setAccountTransferId(transferServiceToUpdate.getAccountTransferId());
         oldTransfer.setSuspicious(transferServiceToUpdate.getSuspicious());
         oldTransfer.setBlocked(transferServiceToUpdate.getBlocked());
@@ -51,6 +51,6 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
 
     @Override
     public void deleteById(BigInteger id) {
-        suspiciousAccountTransferRepository.deleteById(id.intValue());
+        suspiciousAccountTransferRepository.deleteById(id);
     }
 }
