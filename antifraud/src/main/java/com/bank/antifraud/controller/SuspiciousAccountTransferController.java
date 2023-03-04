@@ -70,7 +70,7 @@ public class SuspiciousAccountTransferController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public SuspiciousAccountTransfer convertToTransfer(SuspiciousAccountTransferDto dto) {
+    private SuspiciousAccountTransfer convertToTransfer(SuspiciousAccountTransferDto dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, SuspiciousAccountTransfer.class);
     }

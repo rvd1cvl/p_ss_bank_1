@@ -1,6 +1,9 @@
 package com.bank.antifraud.model;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.math.BigInteger;
 import java.util.Objects;
 

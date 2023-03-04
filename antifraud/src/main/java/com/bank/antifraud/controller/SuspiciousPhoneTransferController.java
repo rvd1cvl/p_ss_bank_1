@@ -1,8 +1,11 @@
 package com.bank.antifraud.controller;
 
 import com.bank.antifraud.dto.SuspiciousCardTransferDto;
+import com.bank.antifraud.dto.SuspiciousPhoneTransferDto;
 import com.bank.antifraud.model.SuspiciousCardTransfer;
+import com.bank.antifraud.model.SuspiciousPhoneTransfer;
 import com.bank.antifraud.service.SuspiciousCardTransferService;
+import com.bank.antifraud.service.SuspiciousPhoneTransferService;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -14,35 +17,33 @@ import java.math.BigInteger;
 import java.util.List;
 
 @RestController
-@RequestMapping("/suspiciousCard")
+@RequestMapping("/suspiciousPhone")
 @CrossOrigin
-public class SuspiciousCardTransferController {
+public class SuspiciousPhoneTransferController {
+    private final SuspiciousPhoneTransferService service;
 
-    private final SuspiciousCardTransferService service;
-
-    public SuspiciousCardTransferController(SuspiciousCardTransferService service) {
+    public SuspiciousPhoneTransferController(SuspiciousPhoneTransferService service) {
         this.service = service;
     }
 
     @GetMapping("/transfers")
-    public ResponseEntity<List<SuspiciousCardTransfer>> showAllTransfers() {;
+    public ResponseEntity<List<SuspiciousPhoneTransfer>> showAllTransfers() {;
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
     @GetMapping("/transfers/{id}")
-    public ResponseEntity<SuspiciousCardTransfer> getOneTransfer(@PathVariable(name = "id") BigInteger id) {
+    public ResponseEntity<SuspiciousPhoneTransfer> getOneTransfer(@PathVariable(name = "id") BigInteger id) {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
     @PostMapping("/transfers")
-    public ResponseEntity<HttpStatus> addTransfer(@RequestBody SuspiciousCardTransferDto dto,
+    public ResponseEntity<HttpStatus> addTransfer(@RequestBody SuspiciousPhoneTransferDto dto,
                                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         try {
             service.save(convertToTransfer(dto));
-        } catch (DataIntegrityViolationException e) {
-            System.out.println("Transfer with this data already exists");
+        } catch (Exception e) {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -54,7 +55,7 @@ public class SuspiciousCardTransferController {
     }
 
     @PatchMapping("/transfers/{id}")
-    public ResponseEntity<HttpStatus> updateTransfer(@RequestBody SuspiciousCardTransferDto dto,
+    public ResponseEntity<HttpStatus> updateTransfer(@RequestBody SuspiciousPhoneTransferDto dto,
                                                      @PathVariable("id") BigInteger oldTransferId,
                                                      BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -68,8 +69,8 @@ public class SuspiciousCardTransferController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    private SuspiciousCardTransfer convertToTransfer(SuspiciousCardTransferDto dto) {
+    private SuspiciousPhoneTransfer convertToTransfer(SuspiciousPhoneTransferDto dto) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(dto, SuspiciousCardTransfer.class);
+        return modelMapper.map(dto, SuspiciousPhoneTransfer.class);
     }
 }

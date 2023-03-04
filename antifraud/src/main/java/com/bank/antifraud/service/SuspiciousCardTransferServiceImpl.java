@@ -24,7 +24,7 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
 
     @Override
     public SuspiciousCardTransfer getById(BigInteger id) {
-        return suspiciousCardTransferRepository.getById(id.intValue());
+        return suspiciousCardTransferRepository.findById(id).get();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
 
     @Override
     public void update(SuspiciousCardTransfer transferToUpdate, BigInteger oldTransferId) {
-        SuspiciousCardTransfer oldTransfer = suspiciousCardTransferRepository.getById(oldTransferId.intValue());
+        SuspiciousCardTransfer oldTransfer = suspiciousCardTransferRepository.getById(oldTransferId);
         oldTransfer.setCardTransferId(transferToUpdate.getCardTransferId());
         oldTransfer.setSuspicious(transferToUpdate.getSuspicious());
         oldTransfer.setBlocked(transferToUpdate.getBlocked());
@@ -51,6 +51,6 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
 
     @Override
     public void deleteById(BigInteger id) {
-        suspiciousCardTransferRepository.deleteById(id.intValue());
+        suspiciousCardTransferRepository.deleteById(id);
     }
 }

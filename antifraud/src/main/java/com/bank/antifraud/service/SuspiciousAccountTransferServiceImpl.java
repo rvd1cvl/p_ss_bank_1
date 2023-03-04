@@ -24,7 +24,7 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
 
     @Override
     public SuspiciousAccountTransfer getById(BigInteger id) {
-        return suspiciousAccountTransferRepository.getById(id);
+        return suspiciousAccountTransferRepository.findById(id).get();
     }
 
     @Override

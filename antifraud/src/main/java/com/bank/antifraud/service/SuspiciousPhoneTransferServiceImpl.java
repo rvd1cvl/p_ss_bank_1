@@ -23,7 +23,7 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
 
     @Override
     public SuspiciousPhoneTransfer getById(BigInteger id) {
-        return suspiciousPhoneTransferRepository.getById(id.intValue());
+        return suspiciousPhoneTransferRepository.findById(id).get();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
 
     @Override
     public void update(SuspiciousPhoneTransfer transferToUpdate, BigInteger oldTransferId) {
-        SuspiciousPhoneTransfer oldTransfer = suspiciousPhoneTransferRepository.getById(oldTransferId.intValue());
+        SuspiciousPhoneTransfer oldTransfer = suspiciousPhoneTransferRepository.getById(oldTransferId);
         oldTransfer.setPhoneTransferId(transferToUpdate.getPhoneTransferId());
         oldTransfer.setSuspicious(transferToUpdate.getSuspicious());
         oldTransfer.setSuspiciousReason(transferToUpdate.getSuspiciousReason());
@@ -49,6 +49,6 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
 
     @Override
     public void deleteById(BigInteger id) {
-        suspiciousPhoneTransferRepository.deleteById(id.intValue());
+        suspiciousPhoneTransferRepository.deleteById(id);
     }
 }
