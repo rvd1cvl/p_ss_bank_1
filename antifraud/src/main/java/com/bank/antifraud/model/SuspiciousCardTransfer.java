@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
-@Table(name = "suspicious_card_transfer")
+@Table(name = "suspicious_card_transfer", schema = "anti_fraud")
 public class SuspiciousCardTransfer {
 
     @Id

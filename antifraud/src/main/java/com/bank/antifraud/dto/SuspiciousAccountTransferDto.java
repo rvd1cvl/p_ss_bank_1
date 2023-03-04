@@ -2,8 +2,8 @@ package com.bank.antifraud.dto;
 
 import java.math.BigInteger;
 
+
 public class SuspiciousAccountTransferDto {
-    private BigInteger id;
 
     private BigInteger accountTransferId;
 
@@ -15,23 +15,14 @@ public class SuspiciousAccountTransferDto {
 
     private String suspiciousReason;
 
-    public SuspiciousAccountTransferDto(BigInteger id, BigInteger accountTransferId, Boolean isBlocked,
+    public SuspiciousAccountTransferDto(BigInteger accountTransferId, Boolean isBlocked,
                                         Boolean isSuspicious, String blockedReason,
                                         String suspiciousReason) {
-        this.id = id;
         this.accountTransferId = accountTransferId;
         this.isBlocked = isBlocked;
         this.isSuspicious = isSuspicious;
         this.blockedReason = blockedReason;
         this.suspiciousReason = suspiciousReason;
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public BigInteger getAccountTransferId() {
