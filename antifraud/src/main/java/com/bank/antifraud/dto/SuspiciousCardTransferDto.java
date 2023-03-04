@@ -4,8 +4,6 @@ import java.math.BigInteger;
 
 public class SuspiciousCardTransferDto {
 
-    private BigInteger id;
-
     private BigInteger cardTransferId;
 
     private Boolean isBlocked;
@@ -16,23 +14,14 @@ public class SuspiciousCardTransferDto {
 
     private String suspiciousReason;
 
-    public SuspiciousCardTransferDto(BigInteger id, BigInteger cardTransferId, Boolean isBlocked,
+    public SuspiciousCardTransferDto(BigInteger cardTransferId, Boolean isBlocked,
                                      Boolean isSuspicious, String blockedReason,
                                      String suspiciousReason) {
-        this.id = id;
         this.cardTransferId = cardTransferId;
         this.isBlocked = isBlocked;
         this.isSuspicious = isSuspicious;
         this.blockedReason = blockedReason;
         this.suspiciousReason = suspiciousReason;
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public BigInteger getCardTransferId() {

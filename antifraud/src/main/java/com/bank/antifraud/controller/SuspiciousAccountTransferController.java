@@ -55,9 +55,9 @@ public class SuspiciousAccountTransferController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PatchMapping("/transfers/{oldTransferId}")
+    @PatchMapping("/transfers/{id}")
     public ResponseEntity<HttpStatus> updateTransfer(@RequestBody SuspiciousAccountTransferDto dto,
-                                                     @PathVariable("oldTransferId") BigInteger oldTransferId,
+                                                     @PathVariable("id") BigInteger oldTransferId,
                                                      BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
