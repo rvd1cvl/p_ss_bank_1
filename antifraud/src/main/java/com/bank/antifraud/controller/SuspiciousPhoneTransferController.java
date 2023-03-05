@@ -1,10 +1,7 @@
 package com.bank.antifraud.controller;
 
-import com.bank.antifraud.dto.SuspiciousCardTransferDto;
 import com.bank.antifraud.dto.SuspiciousPhoneTransferDto;
-import com.bank.antifraud.model.SuspiciousCardTransfer;
-import com.bank.antifraud.model.SuspiciousPhoneTransfer;
-import com.bank.antifraud.service.SuspiciousCardTransferService;
+import com.bank.antifraud.entity.SuspiciousPhoneTransfer;
 import com.bank.antifraud.service.SuspiciousPhoneTransferService;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataIntegrityViolationException;

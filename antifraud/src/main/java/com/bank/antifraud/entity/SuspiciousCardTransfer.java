@@ -1,6 +1,7 @@
-package com.bank.antifraud.model;
+package com.bank.antifraud.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.util.Objects;
 
@@ -22,6 +23,7 @@ public class SuspiciousCardTransfer {
     @Column(name = "is_suspicious")
     private Boolean isSuspicious;
 
+    @NotNull
     @Column(name = "blocked_reason")
     private String blockedReason;
 

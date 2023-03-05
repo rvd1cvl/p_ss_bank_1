@@ -1,10 +1,8 @@
 package com.bank.antifraud.controller;
 
 import com.bank.antifraud.dto.SuspiciousAccountTransferDto;
-import com.bank.antifraud.model.SuspiciousAccountTransfer;
-import com.bank.antifraud.model.SuspiciousCardTransfer;
+import com.bank.antifraud.entity.SuspiciousAccountTransfer;
 import com.bank.antifraud.service.SuspiciousAccountTransferService;
-import liquibase.pro.packaged.M;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

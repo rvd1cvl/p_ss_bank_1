@@ -1,15 +1,13 @@
-package com.bank.antifraud.model;
-
-import org.springframework.lang.Nullable;
+package com.bank.antifraud.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Null;
+import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
 @Table(name = "suspicious_phone_transfers", schema = "anti_fraud")
-public class SuspiciousPhoneTransfer {
+public class    SuspiciousPhoneTransfer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +23,7 @@ public class SuspiciousPhoneTransfer {
     @Column(name = "is_suspicious")
     private Boolean isSuspicious;
 
+    @NotNull
     @Column(name = "blocked_reason")
     private String blockedReason;
 

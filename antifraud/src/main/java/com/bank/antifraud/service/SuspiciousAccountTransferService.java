@@ -1,6 +1,6 @@
 package com.bank.antifraud.service;
 
-import com.bank.antifraud.model.SuspiciousAccountTransfer;
+import com.bank.antifraud.entity.SuspiciousAccountTransfer;
 
 import java.math.BigInteger;
 import java.util.List;

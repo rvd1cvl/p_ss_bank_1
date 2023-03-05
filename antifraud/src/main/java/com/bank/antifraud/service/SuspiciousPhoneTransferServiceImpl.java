@@ -1,6 +1,6 @@
 package com.bank.antifraud.service;
 
-import com.bank.antifraud.model.SuspiciousPhoneTransfer;
+import com.bank.antifraud.entity.SuspiciousPhoneTransfer;
 import com.bank.antifraud.repository.SuspiciousPhoneTransferRepository;
 import org.springframework.stereotype.Service;
 

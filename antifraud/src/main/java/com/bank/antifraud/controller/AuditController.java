@@ -1,9 +1,7 @@
 package com.bank.antifraud.controller;
 
 import com.bank.antifraud.dto.AuditDto;
-import com.bank.antifraud.dto.SuspiciousAccountTransferDto;
-import com.bank.antifraud.model.Audit;
-import com.bank.antifraud.model.SuspiciousAccountTransfer;
+import com.bank.antifraud.entity.Audit;
 import com.bank.antifraud.service.AuditService;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataIntegrityViolationException;

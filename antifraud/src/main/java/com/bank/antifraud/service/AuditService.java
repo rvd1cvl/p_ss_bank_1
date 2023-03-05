@@ -1,6 +1,6 @@
 package com.bank.antifraud.service;
 
-import com.bank.antifraud.model.Audit;
+import com.bank.antifraud.entity.Audit;
 
 import java.math.BigInteger;
 import java.util.List;

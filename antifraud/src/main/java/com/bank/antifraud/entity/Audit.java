@@ -1,7 +1,10 @@
-package com.bank.antifraud.model;
+package com.bank.antifraud.entity;
+
+import io.micrometer.core.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Objects;
@@ -19,24 +22,23 @@ public class Audit {
     @Column(name = "entity_type")
     private String entityType;
 
-    @Max(value = 255)
     @Column(name = "operation_type")
     private String operationType;
 
-    @Max(value = 255)
     @Column(name = "created_by")
     private String createdBy;
-
-    @Max(value = 255)
+    @NotNull
     @Column(name = "modified_by")
     private String modifiedBy;
 
     @Column(name = "created_at")
     private Date createdAt;
 
+    @NotNull
     @Column(name = "modified_at")
     private Date modifiedAt;
 
+    @NotNull
     @Column(name = "new_entity_json")
     private String newEntityJson;
 
