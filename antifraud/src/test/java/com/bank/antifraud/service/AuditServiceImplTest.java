@@ -1,29 +1,25 @@
+package com.bank.antifraud.service;
+
 import com.bank.antifraud.entity.Audit;
 import com.bank.antifraud.repository.AuditRepository;
-import com.bank.antifraud.service.AuditServiceImpl;
+import org.junit.Test;
+
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigInteger;
 import java.util.Date;
 
-@ComponentScan("com.bank.antifraud")
-@EnableAutoConfiguration
-@DataJpaTest
 @RunWith(SpringRunner.class)
-public class AuditTest {
-
+@SpringBootTest
+@ContextConfiguration
+public class AuditServiceImplTest {
     @Autowired
-    private AuditServiceImpl auditService;
-
-    @Autowired
-    private AuditRepository auditRepository;
+    private AuditRepository auditService;
 
     @Test
     public void saveAudit() {
@@ -38,7 +34,7 @@ public class AuditTest {
                 .newEntityJson("aboba6")
                 .build();
 
-        auditRepository.save(audit);
+        auditService.save(audit);
         Assertions.assertEquals(audit.getId(), BigInteger.ONE);
     }
 
@@ -49,3 +45,4 @@ public class AuditTest {
         Assertions.assertNotNull(audit);
     }
 }
+
