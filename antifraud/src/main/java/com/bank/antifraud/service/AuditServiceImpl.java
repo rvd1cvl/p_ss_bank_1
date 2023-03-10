@@ -2,6 +2,7 @@ package com.bank.antifraud.service;
 
 import com.bank.antifraud.entity.Audit;
 import com.bank.antifraud.repository.AuditRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class AuditServiceImpl implements AuditService {
 
+    @Autowired
     private final AuditRepository auditRepository;
 
     public AuditServiceImpl(AuditRepository auditRepository) {

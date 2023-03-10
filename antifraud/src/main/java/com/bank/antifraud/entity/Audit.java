@@ -1,6 +1,5 @@
 package com.bank.antifraud.entity;
 
-import io.micrometer.core.lang.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

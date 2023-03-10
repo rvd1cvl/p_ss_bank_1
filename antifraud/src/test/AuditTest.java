@@ -1,22 +1,29 @@
 import com.bank.antifraud.entity.Audit;
 import com.bank.antifraud.repository.AuditRepository;
+import com.bank.antifraud.service.AuditServiceImpl;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.math.BigInteger;
 import java.util.Date;
-import java.util.Optional;
 
-@ExtendWith(MockitoExtension.class)
-@RunWith(MockitoJUnitRunner.class)
+@DataJpaTest
+@Configuration
+@ComponentScan("com.bank.antifraud")
+@EnableAutoConfiguration
 public class AuditTest {
 
-    @Mock
+    @Autowired
+    private AuditServiceImpl auditService;
+
+    @Autowired
     private AuditRepository auditRepository;
 
     @Test
@@ -33,12 +40,12 @@ public class AuditTest {
                 .build();
 
         auditRepository.save(audit);
-        Assertions.assertNotEquals(audit.getId(), BigInteger.ZERO);
+        Assertions.assertEquals(audit.getId(), BigInteger.ONE);
     }
 
     @Test
     public void getAuditTest() {
-        Audit audit = auditRepository.findById(BigInteger.valueOf(1)).orElse(null);
+        Audit audit = auditService.getById(BigInteger.valueOf(1));
 
         Assertions.assertNotNull(audit);
     }
