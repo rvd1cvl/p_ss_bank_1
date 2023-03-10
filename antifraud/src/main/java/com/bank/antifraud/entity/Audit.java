@@ -1,6 +1,9 @@
 package com.bank.antifraud.entity;
 
 import io.micrometer.core.lang.Nullable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -9,6 +12,9 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "audit", schema = "anti_fraud")
 public class Audit {
@@ -59,6 +65,10 @@ public class Audit {
     }
 
     public Audit() {
+
+    }
+    public Audit(BigInteger id) {
+        this.id = id;
 
     }
 
